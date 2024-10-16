@@ -1,0 +1,121 @@
+.lyrics {
+  display: flex;
+  align-items: center;
+  height: calc(68vh - 80px);
+  overflow: hidden;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
+  width: 60%;
+  top: 16vh;
+  overflow-x: hidden;
+  padding-right: 5%;
+  z-index: 10;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    hsla(0, 0%, 100%, 0),
+    hsla(0, 0%, 100%, 0.8) 10%,
+    #fff 25%,
+    #fff 75%,
+    hsla(0, 0%, 100%, 0.8) 90%,
+    hsla(0, 0%, 100%, 0)
+  );
+}
+
+.lyric {
+  padding: 10px;
+  cursor: pointer;
+  transition: opacity 0.1s ease, transform 0.1s ease;
+  width: 100%;
+  font-size: 56px;
+  font-weight: bold;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+  -webkit-transition: opacity 0.1s ease, transform 0.1s ease;
+  -moz-transition: opacity 0.1s ease, transform 0.1s ease;
+  -ms-transition: opacity 0.1s ease, transform 0.1s ease;
+  -o-transition: opacity 0.1s ease, transform 0.1s ease;
+
+}
+
+.lyric.active {
+  opacity: 1;
+  transition-delay: 0.1s;
+  color: rgb(255, 255, 0);
+}
+
+.lyric:not(.active) {
+  opacity: 0.2;
+  color: #ffffff;
+  transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+  -webkit-transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+  -moz-transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+  -ms-transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+  -o-transition: opacity 0.2s ease 0.2s, transform 0.2s ease 0.2s;
+}
+
+.wrapper-img-action img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 5px solid var(--white-color);
+  animation: rotate 20s linear infinite;
+  position: relative;
+}
+.wrapper-img-action img.paused {
+  animation-play-state: paused;
+}
+.wrapper-img-action img.playing {
+  animation-play-state: running;
+}
+.wrapper-img-action {
+  height: 100vh;
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+.wrapper-lyrics {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--blue-color);
+}
+.blur-bg-lyrics {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+.img-blur {
+  width: 100%;
+  position: fixed;
+  background-size: contain;
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+}
+.wrapper-img-action::before {
+  content: "";
+  width: 80px;
+  height: 80px;
+  background-color: var(--dark-color);
+  border: 5px solid var(--light-gray-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  margin: -40px 0 0 -40px;
+  border-radius: 50%;
+}
+
+.no-lyric{
+  font-size: 56px;
+  font-weight: bold;  
+  color: var(--light-gray-color);
+  margin-top: 29%;
+  text-align: center;
+  z-index: 10;
+}
